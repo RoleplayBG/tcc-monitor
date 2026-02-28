@@ -29,13 +29,13 @@ jobs:
 
       - name: Package IPA
         run: |
-          cd build/tcc-monitor.xcarchive/Products/Applications
-          mkdir -p Payload
-          mv tcc-monitor.app Payload/
-          zip -r ../../../../tcc-monitor.ipa Payload
+          mkdir -p ipa_output/Payload
+          cp -r build/tcc-monitor.xcarchive/Products/Applications/tcc-monitor.app ipa_output/Payload/
+          cd ipa_output
+          zip -r ../tcc-monitor.ipa Payload
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: tcc-monitor-ipa
-          path: build/tcc-monitor.ipa
+          path: tcc-monitor.ipa
