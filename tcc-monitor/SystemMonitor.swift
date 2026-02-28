@@ -1,7 +1,10 @@
 import Foundation
-import os.proc
 import UIKit
 import Combine
+
+// os_proc_available_memory() is available via Darwin
+@_silgen_name("os_proc_available_memory")
+func os_proc_available_memory() -> UInt64
 
 struct MemoryReading: Identifiable, Codable {
     let id: UUID
