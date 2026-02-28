@@ -35,7 +35,7 @@ class SystemMonitor: ObservableObject {
     private var timer: Timer?
     private var beaconTimer: Timer?
     private let maxReadings = 500
-    private var baselineMemory: Double = 0
+    var baselineMemory: Double = 0
     private var previousAvailable: Double = 0
 
     // Memory thresholds (MB)
